@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<header>
+    <h1>Welcome to the Library!</h1>
+    <h3>Organize your books here and don't forget to add a comment!</h3>
+</header>
+<main>
+    <section class="library-container">
+        <button id="addBookBtn">+</button>
+        <div class="libraryShelf">
+            <div class="bookHolder">       
+            </div>
+        </div>
+    </section>
+    <dialog id="bookDialog">
+        <form id="book-form" method="dialog">
+            <div class="form-heading">
+             <h3>Add New Book</h3>
+            </div>
+            <label for="Book Title"></label>
+                <input type="text" id="title" placeholder="Title">
+            
+            <label for="Author">
+                <input type="text" id="author" placeholder="Author">
+            </label>
+            <label for="Number">
+                 <input type="number" id="pages" placeholder="Number of Pages">
+            </label>
+            <label>
+                 <input type="text" placeholder="Write something about the book!" id="comment">
+            </label>
+            <div class="checkbox-wrapper">
+                <label>
+                <input type="checkbox" name="status" id="read">Read
+                </label>
+            </div>  
+            <div class="buttons">        
+                <button type="submit">Add</button>
+                <button id="cancelbtn">Cancel</button>
+            </div> 
+        </form>
+    </dialog>
+    <script src="./script.js"></script>
+    
+</main>
+
+
+</html>
