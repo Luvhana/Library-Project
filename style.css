@@ -110,7 +110,7 @@ input[type="checkbox"]{
     justify-content: center;
     gap: 10px;
 }
-button{
+.bookSubmit, #cancelbtn{
     width: 80px;
     height: 40px;
     border-radius: 10px;
@@ -120,7 +120,7 @@ button{
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 
 }
-button:hover{
+.bookSubmit:hover, #cancelbtn:hover{
     background-color: #fbdd74;
     border: 1px solid black;
 }
@@ -137,15 +137,15 @@ button:pressed{
     border-radius: 6px;
     display: flex;
     align-items: center;
-    
+    position: relative;
     
 }
 .bookHolder{
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 8px;
     padding: 20px;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
     height: 100%;
     width: 100%;
@@ -153,4 +153,114 @@ button:pressed{
     background-color: #f5deb3;
 }
 
+.book{
+    width: 50px;
+    height: 170px;
+    background: linear-gradient(to right, #065f5f,#0a8c8c);
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow:
+    inset 4px 0 8px rgba(0,0,0,0.4),
+    3px 5px 10px rgba(0,0,0,0.3);
+    border-radius: 4px 4px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+.book::before{
+    content: "";
+    position:absolute;
+    width: 6px;
+    height: 90%;
+    left: 4px;
+    top: 5%;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.2);
+}
+.book:hover{
+    transform: translateY(-5px) rotate(-2deg);
+}
+.title{
+    margin-bottom: 6px;
+    font-size: 0.8rem;
 
+}
+.author{
+    font-size: 0.7rem;
+    opacity: 0.8;
+    color: wheat;
+}
+.delete{
+    margin-top: 15px;
+    width: 20px;
+    height: 20px;
+    background-image: url(./icons8-delete-16.png);
+}
+.spine {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+.cover {
+    position: relative;
+    inset: 0;
+    color: black;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    transform-style: preserve-3d;
+    display: flex;
+    gap: 5px;
+    transition: all 0.5s ease;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+.book.open {
+    width: 220px;   /* expands from spine to cover */
+    height: 250px;
+
+    writing-mode: horizontal-tb; /* reset text */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+.book.open .spine {
+    opacity: 0;
+}
+.book.open .cover {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+.comment{
+    border: 1px solid black;
+    padding: 5px;
+}
+.toggle-read{
+   background-color: black; 
+   color: white;
+   padding: 5px;
+   border-radius: 20px;
+}
