@@ -16,7 +16,7 @@ form.addEventListener('submit',function(e){
     e.preventDefault();
     const title=document.getElementById('title').value;
     const author=document.getElementById('author').value;
-    const pages=document.getElementById('pages').value;
+    const pages=Number(document.getElementById('pages').value);
     const read=document.getElementById('read').checked;
     const comment=document.getElementById('comment').value;
 
@@ -31,18 +31,30 @@ form.addEventListener('submit',function(e){
 
 const myLibrary=[];
 
-function Book(title,author,pages,comment,read,id,color){
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.comment=comment;
-    this.read=read;
-    this.id= id;
-    this.color = color;
-    console.log(`The ${this.title} is written by ${this.author} and is of ${this.pages} pages.`)
-}
-Book.prototype.toggleRead = function(){
-    this.read = !this.read;
+// function Book(title,author,pages,comment,read,id,color){
+//     this.title=title;
+//     this.author=author;
+//     this.pages=pages;
+//     this.comment=comment;
+//     this.read=read;
+//     this.id= id;
+//     this.color = color;
+//     console.log(`The ${this.title} is written by ${this.author} and is of ${this.pages} pages.`)
+// }
+
+class Book{
+    constructor(title,author,pages,comment,read,id,color){
+        this.title=title;
+        this.author=author;
+        this.pages= pages;
+        this.comment = comment;
+        this.read = read;
+        this.id = id;
+        this.color = color;
+    }
+    toggleRead(){
+        this.read = !this.read;
+    }
 }
 
 function addBookToLibrary(title,author,pages,comment,read){
